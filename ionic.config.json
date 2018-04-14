@@ -1,6 +1,6 @@
 {
   "name": "carManagement",
-  "app_id": "",
+  "app_id": "bb9d8f49",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
