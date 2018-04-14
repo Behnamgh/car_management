@@ -74,6 +74,7 @@ export class ListMasterPage {
    * Navigate to the detail page for this item.
    */
   openItem(item: Item) {
+    console.log('open ', item);
     this.navCtrl.push('ItemDetailPage', {
       item: item
     });
@@ -82,7 +83,6 @@ export class ListMasterPage {
     // this.navCtrl.push('PartPage', {
     //   part: part
     // });
-    console.log('open ', part);
     
   }
 }

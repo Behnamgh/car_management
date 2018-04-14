@@ -38,7 +38,7 @@
       </button>
 
       <ion-item *ngIf="car.parts">
-        <button ion-item *ngFor="let part of car.parts">
+        <button ion-item *ngFor="let part of car.parts" (click)="openItem(part)">
           <ion-icon name="cafe" item-start></ion-icon>
           {{part.name}}
         </button>
