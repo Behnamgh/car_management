@@ -79,8 +79,10 @@ export class ListMasterPage {
     });
   }
   openPart(part) {
-    this.navCtrl.push('PartPage', {
-      part: part
-    });
+    // this.navCtrl.push('PartPage', {
+    //   part: part
+    // });
+    console.log('open ', part);
+    
   }
 }

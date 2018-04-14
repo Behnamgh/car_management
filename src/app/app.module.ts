@@ -17,7 +17,6 @@ import { MyApp } from './app.component';
 import { DataProvider } from '../providers/data/data';
 
 
-import { PartPage } from '../pages/part/part';
 
 
 
@@ -44,8 +43,7 @@ export function provideSettings(storage: Storage) {
 
 @NgModule({
   declarations: [
-    MyApp,
-    PartPage
+    MyApp
   ],
   imports: [
     BrowserModule,
