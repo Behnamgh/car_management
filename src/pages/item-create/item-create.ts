@@ -77,7 +77,7 @@ export class ItemCreatePage {
    * back to the presenter.
    */
   done() {
-    if (!this.form.valid) { return; }
+    if (!this.form.valid) { return; };
     this.viewCtrl.dismiss(this.form.value);
   }
 }

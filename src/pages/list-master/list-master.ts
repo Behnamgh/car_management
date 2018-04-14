@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 
 import { Item } from '../../models/item';
-import { Items } from '../../providers/providers';
+import { Items, DataProvider } from '../../providers/providers';
 
 @IonicPage()
 @Component({
@@ -11,15 +11,26 @@ import { Items } from '../../providers/providers';
 })
 export class ListMasterPage {
   currentItems: Item[];
+  datas: any = [];
 
-  constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController, public dataProvider: DataProvider) {
     this.currentItems = this.items.query();
+    this.loadData();
+  }
+  loadData(){
+    this.datas = this.dataProvider.loadCars();
+
   }
 
   /**
    * The view loaded, let's query our items for the list
    */
+  ionViewDidEnter() {
+    console.log('enter');
+  }
   ionViewDidLoad() {
+    console.log('check');
+    
   }
 
   /**
@@ -30,8 +41,11 @@ export class ListMasterPage {
     let addModal = this.modalCtrl.create('ItemCreatePage');
     addModal.onDidDismiss(item => {
       if (item) {
-        this.items.add(item);
+        this.dataProvider.addData('datas', item);
+        this.loadData();
       }
+      console.log(item);
+      
     })
     addModal.present();
   }

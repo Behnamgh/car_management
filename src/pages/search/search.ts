@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Item } from '../../models/item';
-import { Items } from '../../providers/providers';
+import { Items, DataProvider } from '../../providers/providers';
 
 @IonicPage()
 @Component({
@@ -13,7 +13,11 @@ export class SearchPage {
 
   currentItems: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items) { }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items, public dataProvider: DataProvider) { 
+    let result = dataProvider.loadCars();
+    console.log(result);
+    
+  }
 
   /**
    * Perform a service for the proper items.

@@ -14,22 +14,40 @@
 
 <ion-content>
 
-  <ion-list>
-    <ion-item-sliding *ngFor="let item of currentItems">
-      <button ion-item (click)="openItem(item)">
-        <ion-avatar item-start>
-          <img [src]="item.profilePic" />
-        </ion-avatar>
-        <h2>{{item.name}}</h2>
-        <p>{{item.about}}</p>
-        <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
+
+  <ion-card *ngFor="let car of datas">
+    <ion-card-header>
+      {{ car.name }}
+    </ion-card-header>
+
+    <ion-list>
+      <button ion-item>
+        <ion-icon name="cart" item-start></ion-icon>
+        add fuel
       </button>
 
-      <ion-item-options>
-        <button ion-button color="danger" (click)="deleteItem(item)">
-          {{ 'DELETE_BUTTON' | translate }}
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
+      <button ion-item>
+        <ion-icon name="medical" item-start></ion-icon>
+        add kiloometer
+      </button>
+
+      <button ion-item>
+        <ion-icon name="cafe" item-start></ion-icon>
+        add part
+      </button>
+
+      <button ion-item>
+        <ion-icon name="paw" item-start></ion-icon>
+check part    
+  </button>
+
+      <button ion-item>
+        <ion-icon name="beer" item-start></ion-icon>
+        reports
+      </button>
+
+
+    </ion-list>
+  </ion-card>
+
 </ion-content>

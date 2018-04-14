@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, MenuController, NavController, Platform } from 'ionic-angular';
 
 import { TranslateService } from '@ngx-translate/core';
+import { MainPage } from '../pages';
+import { DataProvider } from '../../providers/providers';
 
 export interface Slide {
   title: string;
@@ -19,7 +21,7 @@ export class TutorialPage {
   showSkip = true;
   dir: string = 'ltr';
 
-  constructor(public navCtrl: NavController, public menu: MenuController, translate: TranslateService, public platform: Platform) {
+  constructor(public navCtrl: NavController, public menu: MenuController, translate: TranslateService, public platform: Platform, public dataProvider: DataProvider) {
     this.dir = platform.dir();
     translate.get(["TUTORIAL_SLIDE1_TITLE",
       "TUTORIAL_SLIDE1_DESCRIPTION",
@@ -51,10 +53,12 @@ export class TutorialPage {
   }
 
   startApp() {
-    this.navCtrl.setRoot('WelcomePage', {}, {
-      animate: true,
-      direction: 'forward'
-    });
+    this.navCtrl.push(MainPage);
+
+    // this.navCtrl.setRoot('WelcomePage', {}, {
+    //   animate: true,
+    //   direction: 'forward'
+    // });
   }
 
   onSlideChangeStart(slider) {
