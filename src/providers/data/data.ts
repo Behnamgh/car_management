@@ -18,14 +18,11 @@ export class DataProvider {
     // this.storage.set(key, value);
   }
   addData(key, value) {
-    localStorage.getItem(key);
+
     let result = JSON.parse(localStorage.getItem(key));
-    result.push(value);
-    localStorage.setItem(key, JSON.stringify(result));
-    // this.storage.get(key).then((result) => {
-    //   result.push(value);s
-    //   this.storage.set(key, result);
-    // });
+    if (result) result.push(value);
+    let data = result ? result : [value];
+    localStorage.setItem(key, JSON.stringify(data));
   }
   loadCars(key: string = 'datas') {
     return JSON.parse(localStorage.getItem(key));

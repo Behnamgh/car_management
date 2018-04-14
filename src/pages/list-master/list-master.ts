@@ -19,7 +19,8 @@ export class ListMasterPage {
   }
   loadData(){
     this.datas = this.dataProvider.loadCars();
-
+    console.log(this.datas);
+    
   }
 
   /**
