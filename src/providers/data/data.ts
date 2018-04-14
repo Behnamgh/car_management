@@ -29,6 +29,17 @@ export class DataProvider {
     // return this.storage.get(key);
 
   }
+  addPart(index, item) {
+    let result = JSON.parse(localStorage.getItem('datas'));
+    let parts = result[index].parts;
+    if (parts) {
+      parts.push(item);
+    } else {
+      parts = [item]
+    }
+    result[index].parts = parts;
+    localStorage.setItem('datas', JSON.stringify(result));
+  }
   loadFuel() {
 
   }

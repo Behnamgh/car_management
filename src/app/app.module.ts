@@ -17,6 +17,9 @@ import { MyApp } from './app.component';
 import { DataProvider } from '../providers/data/data';
 
 
+import { PartPage } from '../pages/part/part';
+
+
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -41,7 +44,8 @@ export function provideSettings(storage: Storage) {
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    PartPage
   ],
   imports: [
     BrowserModule,

@@ -17,10 +17,10 @@ export class ListMasterPage {
     this.currentItems = this.items.query();
     this.loadData();
   }
-  loadData(){
+  loadData() {
     this.datas = this.dataProvider.loadCars();
     console.log(this.datas);
-    
+
   }
 
   /**
@@ -31,14 +31,14 @@ export class ListMasterPage {
   }
   ionViewDidLoad() {
     console.log('check');
-    
+
   }
 
   /**
    * Prompt the user to add a new item. This shows our ItemCreatePage in a
    * modal and then adds the new item to our data source if the user created one.
    */
-  addItem() {
+  addCar() {
     let addModal = this.modalCtrl.create('ItemCreatePage');
     addModal.onDidDismiss(item => {
       if (item) {
@@ -46,7 +46,19 @@ export class ListMasterPage {
         this.loadData();
       }
       console.log(item);
-      
+
+    })
+    addModal.present();
+  }
+  addPart(index) {
+    let addModal = this.modalCtrl.create('ItemCreatePage');
+    addModal.onDidDismiss(item => {
+      if (item) {
+        this.dataProvider.addPart(index, item);
+        this.loadData();
+      }
+      console.log(item);
+
     })
     addModal.present();
   }
@@ -64,6 +76,11 @@ export class ListMasterPage {
   openItem(item: Item) {
     this.navCtrl.push('ItemDetailPage', {
       item: item
+    });
+  }
+  openPart(part) {
+    this.navCtrl.push('PartPage', {
+      part: part
     });
   }
 }

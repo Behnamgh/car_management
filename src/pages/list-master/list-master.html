@@ -4,7 +4,7 @@
     <ion-title>{{ 'LIST_MASTER_TITLE' | translate }}</ion-title>
 
     <ion-buttons end>
-      <button ion-button icon-only (click)="addItem()">
+      <button ion-button icon-only (click)="addCar()">
         <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>
@@ -15,7 +15,7 @@
 <ion-content>
 
 
-  <ion-card *ngFor="let car of datas">
+  <ion-card *ngFor="let car of datas;let i = index">
     <ion-card-header>
       {{ car.name }}
     </ion-card-header>
@@ -31,15 +31,18 @@
         add kiloometer
       </button>
 
-      <button ion-item>
-        <ion-icon name="cafe" item-start></ion-icon>
+
+      <button ion-item (click)="addPart(i)">
+        <ion-icon name="paw" item-start></ion-icon>
         add part
       </button>
 
-      <button ion-item>
-        <ion-icon name="paw" item-start></ion-icon>
-check part    
-  </button>
+      <ion-item *ngIf="car.parts">
+        <button ion-item *ngFor="let part of car.parts" (click)="openPart(part)">
+          <ion-icon name="cafe" item-start></ion-icon>
+          {{part.name}}
+        </button>
+      </ion-item>
 
       <button ion-item>
         <ion-icon name="beer" item-start></ion-icon>
