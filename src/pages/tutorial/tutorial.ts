@@ -54,7 +54,7 @@ export class TutorialPage {
 
   startApp() {
     this.navCtrl.push(MainPage);
-
+    localStorage.setItem('skip','true');
     // this.navCtrl.setRoot('WelcomePage', {}, {
     //   animate: true,
     //   direction: 'forward'

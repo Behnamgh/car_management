@@ -41,7 +41,7 @@ export class DataProvider {
     localStorage.setItem('datas', JSON.stringify(result));
   }
   loadFuel() {
-    
+
   }
   addFuel(carNumber, item) {
     let result = JSON.parse(localStorage.getItem('datas'));
@@ -52,11 +52,44 @@ export class DataProvider {
       Fuels = [item]
     }
     result[carNumber].Fuels = Fuels;
+    console.log(Fuels, result)
     localStorage.setItem('datas', JSON.stringify(result));
   }
   getFuelList(carNumber) {
     let result = JSON.parse(localStorage.getItem('datas'));
-    return result.Fuels ? result.Fuels : [];
+    let list = result[carNumber].Fuels ? result[carNumber].Fuels : [];
+    console.log(list);
+    return list;
+  }
+  removeAllFuels(carNumber) {
+    let result = JSON.parse(localStorage.getItem('datas'));
+    let Fuels = result[carNumber].Fuels;
+    if (Fuels) {
+      Fuels = [];
+    }
+    result[carNumber].Fuels = Fuels;
+    console.log(Fuels, result)
+    localStorage.setItem('datas', JSON.stringify(result));
+  }
+  getMaxKm(carNumber) {
+    let list = this.getFuelList(carNumber);
+    return list.length ? Math.max(list.map(fuel => fuel.Kilometre)) : 0;
+  }
+  deleteFuel(carNumber, fuelNumber) {
+    let result = JSON.parse(localStorage.getItem('datas'));
+    let Fuels = result[carNumber].Fuels;
+    Fuels.splice(fuelNumber, 1);
+    result[carNumber].Fuels = Fuels;
+    console.log(Fuels, result)
+    localStorage.setItem('datas', JSON.stringify(result));
+  }
+  favoriteFuel(carNumber, fuelNumber) {
+    let result = JSON.parse(localStorage.getItem('datas'));
+    let Fuels = result[carNumber].Fuels;
+    Fuels[fuelNumber]['favorite'] = 'true';
+    result[carNumber].Fuels = Fuels;
+    console.log(Fuels, result)
+    localStorage.setItem('datas', JSON.stringify(result));
   }
 
 }

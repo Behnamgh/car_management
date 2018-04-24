@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import { Items, DataProvider } from '../../providers/providers';
+import { DataProvider } from '../../providers/providers';
 import { FuelCreatePage } from '../fuel-create/fuel-create';
 
 /**
@@ -17,6 +17,8 @@ import { FuelCreatePage } from '../fuel-create/fuel-create';
 })
 export class FuelListPage {
   carNumber: number;
+  fuelList: any = [];
+  mode: boolean = true;
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public dataProvider: DataProvider) {
     this.carNumber = navParams.get('car');
     console.log(this.carNumber);
@@ -40,7 +42,22 @@ export class FuelListPage {
     addFuel.present();
   }
   loadFuelList() {
-    this.dataProvider.getFuelList(this.carNumber);
+    this.fuelList = this.dataProvider.getFuelList(this.carNumber);
+  }
+  favorite(i) {
+    this.dataProvider.favoriteFuel(this.carNumber, i);
+    this.loadFuelList();
+  }
+
+  delete(i) {
+    this.dataProvider.deleteFuel(this.carNumber, i);
+    this.loadFuelList();
+  }
+  reorderItems(indexes) {
+    console.log(indexes);
+    let element = this.fuelList[indexes.from];
+    this.fuelList.splice(indexes.from, 1);
+    this.fuelList.splice(indexes.to, 0, element);
   }
 
 }

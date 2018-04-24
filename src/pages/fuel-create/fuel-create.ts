@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DataProvider } from '../../providers/data/data';
 
 /**
  * Generated class for the FuelCreatePage page.
@@ -23,14 +24,17 @@ export class FuelCreatePage {
 
   form: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, formBuilder: FormBuilder, public dataProvider: DataProvider) {
+    let MIN = dataProvider.getMaxKm(0) + 1;
+    console.log(MIN);
     this.form = formBuilder.group({
-      name: ['', Validators.required],
-      about: [''],
-      kiloometer: ['']
+      name: [''],
+      location: [''],
+      date: ['', Validators.required],
+      Kilometre: ['', [Validators.min(MIN), Validators.required]]
     });
     this.form.valueChanges.subscribe((v) => {
-      console.log(v,this.form);
+      console.log(v, this.form);
       this.isReadyToSave = this.form.valid;
     });
   }
