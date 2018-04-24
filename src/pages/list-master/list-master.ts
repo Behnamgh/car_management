@@ -3,6 +3,7 @@ import { IonicPage, ModalController, NavController } from 'ionic-angular';
 
 import { Item } from '../../models/item';
 import { Items, DataProvider } from '../../providers/providers';
+import { FuelListPage } from '../fuel-list/fuel-list';
 
 @IonicPage()
 @Component({
@@ -83,6 +84,13 @@ export class ListMasterPage {
     // this.navCtrl.push('PartPage', {
     //   part: part
     // });
-    
+
+  }
+  openFuelList(car) {
+    console.log(car);
+    this.navCtrl.push(FuelListPage, {
+      car: car
+    });
+
   }
 }

@@ -41,7 +41,22 @@ export class DataProvider {
     localStorage.setItem('datas', JSON.stringify(result));
   }
   loadFuel() {
-
+    
+  }
+  addFuel(carNumber, item) {
+    let result = JSON.parse(localStorage.getItem('datas'));
+    let Fuels = result[carNumber].Fuels;
+    if (Fuels) {
+      Fuels.push(item);
+    } else {
+      Fuels = [item]
+    }
+    result[carNumber].Fuels = Fuels;
+    localStorage.setItem('datas', JSON.stringify(result));
+  }
+  getFuelList(carNumber) {
+    let result = JSON.parse(localStorage.getItem('datas'));
+    return result.Fuels ? result.Fuels : [];
   }
 
 }

@@ -16,6 +16,9 @@ import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 import { DataProvider } from '../providers/data/data';
 
+import { FuelListPage } from '../pages/fuel-list/fuel-list';
+import { FuelCreatePage } from '../pages/fuel-create/fuel-create';
+
 
 
 
@@ -43,7 +46,9 @@ export function provideSettings(storage: Storage) {
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    FuelListPage,
+    FuelCreatePage
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,9 @@ export function provideSettings(storage: Storage) {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    FuelListPage,
+    FuelCreatePage
   ],
   providers: [
     Api,
