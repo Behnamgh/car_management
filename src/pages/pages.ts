@@ -1,7 +1,8 @@
 // The page the user lands on after opening the app and without a session
 let skip = localStorage.getItem('skip');
 export const FirstRunPage = skip=='true' ? 'TabsPage': 'TutorialPage';
-localStorage.setItem('datas','[{"profilePic":"","name":"206","about":"Behnam","Fuels":[{"name":"normal","location":"ghalandar","date":"ghable eyd","Kilometre":"199000"},{"name":"normal","location":"pido","date":"dirooz","Kilometre":"199100"}]},{"profilePic":"","name":"besturn","about":"yegane","Fuels":[{"name":"super","location":"jordan","date":"yemah pish","Kilometre":"20000"},{"name":"mamuli","location":"pido","date":"ye hafte pish","Kilometre":"20100"}]},{"profilePic":"","name":"samand","about":"baba"}]');
+let data = '[{"profilePic":"","name":"206 Black","about":"Behnam","Fuels":[{"name":"eyd ","location":"velenjak","date":"1397-01-01T22:04:75Z","litr":"50","kilometre":"120111","favorite":"true"},{"name":"sizdah be dar","location":"jordan","date":"1397-01-13T22:04:69Z","litr":"33","kilometre":"121250"},{"name":"akhare farvardin","location":"pido","date":"1397-01-31T22:04:79Z","litr":"22","kilometre":"121350"}]},{"profilePic":"","name":"Besturn White","about":"Yegane"},{"profilePic":"","name":"Samand White","about":"baba"}]';
+localStorage.setItem('datas',data);
 // The main page the user will see as they use the app over a long period of time.
 // Change this if not using tabs
 export const MainPage = 'TabsPage';

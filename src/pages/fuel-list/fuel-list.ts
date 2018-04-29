@@ -30,7 +30,7 @@ export class FuelListPage {
   }
   addFuel() {
     console.log(this.carNumber);
-    let addFuel = this.modalCtrl.create(FuelCreatePage);
+    let addFuel = this.modalCtrl.create(FuelCreatePage, { carNumber: this.carNumber });
     addFuel.onDidDismiss(item => {
       if (item) {
         this.dataProvider.addFuel(this.carNumber, item);

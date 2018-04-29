@@ -24,10 +24,12 @@ export class DataProvider {
     let data = result ? result : [value];
     localStorage.setItem(key, JSON.stringify(data));
   }
-  loadCars(key: string = 'datas') {
+  loadDatas(key: string = 'datas') {
     return JSON.parse(localStorage.getItem(key));
-    // return this.storage.get(key);
-
+  }
+  loadCar(carNumber) {
+    let result = JSON.parse(localStorage.getItem('datas'));
+    return result[carNumber];
   }
   addPart(index, item) {
     let result = JSON.parse(localStorage.getItem('datas'));
@@ -73,7 +75,9 @@ export class DataProvider {
   }
   getMaxKm(carNumber) {
     let list = this.getFuelList(carNumber);
-    return list.length ? Math.max(list.map(fuel => fuel.Kilometre)) : 0;
+    console.log(list.length);
+
+    return list.length ? Math.max(...list.map(fuel => parseInt(fuel.kilometre))) : 0;
   }
   deleteFuel(carNumber, fuelNumber) {
     let result = JSON.parse(localStorage.getItem('datas'));

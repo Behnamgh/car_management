@@ -19,7 +19,7 @@ export class ListMasterPage {
     this.loadData();
   }
   loadData() {
-    this.datas = this.dataProvider.loadCars();
+    this.datas = this.dataProvider.loadDatas();
     console.log(this.datas);
 
   }

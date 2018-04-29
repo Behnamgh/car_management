@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataProvider } from '../../providers/data/data';
-
+import * as moment from 'jalali-moment';
 /**
  * Generated class for the FuelCreatePage page.
  *
@@ -19,24 +19,31 @@ export class FuelCreatePage {
   @ViewChild('fileInput') fileInput;
 
   isReadyToSave: boolean;
-
   item: any;
-
   form: FormGroup;
+  maxDate: string;
+  yearVal = [moment().jYear(), moment().jYear() - 1];
+  carData:object;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, formBuilder: FormBuilder, public dataProvider: DataProvider, params: NavParams) {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, formBuilder: FormBuilder, public dataProvider: DataProvider) {
+    this.carData = this.dataProvider.loadCar(params.get('carNumber'));
+    
     let MIN = dataProvider.getMaxKm(0) + 1;
     console.log(MIN);
+    
     this.form = formBuilder.group({
       name: [''],
       location: [''],
-      date: ['', Validators.required],
-      Kilometre: ['', [Validators.min(MIN), Validators.required]]
+      date: [moment().format('jYYYY-jMM-jDDTHH:MM:SS'), Validators.required],
+      litr: ['', [Validators.min(0), Validators.required]],
+      kilometre: [, [Validators.min(MIN), Validators.required]],
     });
+
     this.form.valueChanges.subscribe((v) => {
       console.log(v, this.form);
       this.isReadyToSave = this.form.valid;
     });
+
   }
 
   ionViewDidLoad() {

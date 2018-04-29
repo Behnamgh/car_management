@@ -14,7 +14,7 @@ export class SearchPage {
   currentItems: any = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items, public dataProvider: DataProvider) { 
-    let result = dataProvider.loadCars();
+    let result = dataProvider.loadDatas();
     console.log(result);
     
   }
