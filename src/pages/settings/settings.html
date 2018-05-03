@@ -17,15 +17,20 @@
 
       <ion-item>
         <ion-label>{{ 'SETTINGS_OPTION2' | translate }}</ion-label>
-        <ion-input formControlName="option2"></ion-input>
+        <ion-select formControlName="chart">
+          <ion-option value="line" checked="true">line</ion-option>
+          <ion-option value="bar">bar</ion-option>
+        </ion-select>
       </ion-item>
 
       <ion-item>
         <ion-label>{{ 'SETTINGS_OPTION3' | translate }}</ion-label>
-        <ion-select formControlName="option3">
-          <ion-option value="1" checked="true">1</ion-option>
-          <ion-option value="2">2</ion-option>
-          <ion-option value="3">3</ion-option>
+        <ion-select formControlName="lang">
+          <ion-option value="fa" checked="true">persian</ion-option>
+          <ion-option value="en">english</ion-option>
+          <ion-option value="ar">arabic</ion-option>
+          <ion-option value="fr">french</ion-option>
+          <ion-option value="de">germany</ion-option>
         </ion-select>
       </ion-item>
 

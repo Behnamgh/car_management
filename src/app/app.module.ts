@@ -18,7 +18,9 @@ import { DataProvider } from '../providers/data/data';
 
 import { FuelListPage } from '../pages/fuel-list/fuel-list';
 import { FuelCreatePage } from '../pages/fuel-create/fuel-create';
+import { ReportsPage } from '../pages/reports/reports';
 
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -48,7 +50,8 @@ export function provideSettings(storage: Storage) {
   declarations: [
     MyApp,
     FuelListPage,
-    FuelCreatePage
+    FuelCreatePage,
+    ReportsPage
   ],
   imports: [
     BrowserModule,
@@ -61,13 +64,15 @@ export function provideSettings(storage: Storage) {
       }
     }),
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     FuelListPage,
-    FuelCreatePage
+    FuelCreatePage,
+    ReportsPage
   ],
   providers: [
     Api,

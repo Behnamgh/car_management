@@ -44,8 +44,8 @@ export class SettingsPage {
   _buildForm() {
     let group: any = {
       option1: [this.options.option1],
-      option2: [this.options.option2],
-      option3: [this.options.option3]
+      chart: [this.options.chart],
+      lang: [this.options.lang]
     };
 
     switch (this.page) {
@@ -61,7 +61,19 @@ export class SettingsPage {
 
     // Watch the form for changes, and
     this.form.valueChanges.subscribe((v) => {
-      this.settings.merge(this.form.value);
+      this.settings.getValue('lang').then(res => {
+        console.log(res);
+        console.log(this.form.value.lang);
+
+        if (res != this.form.value.lang) {
+          this.translate.setDefaultLang(this.form.value.lang);
+          localStorage.setItem('lang', this.form.value.lang);
+        }
+        this.settings.merge(this.form.value);
+      });
+      // console.log();
+
+
     });
   }
 

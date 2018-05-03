@@ -4,6 +4,7 @@ import { IonicPage, ModalController, NavController } from 'ionic-angular';
 import { Item } from '../../models/item';
 import { Items, DataProvider } from '../../providers/providers';
 import { FuelListPage } from '../fuel-list/fuel-list';
+import { ReportsPage } from '../reports/reports';
 
 @IonicPage()
 @Component({
@@ -75,7 +76,6 @@ export class ListMasterPage {
    * Navigate to the detail page for this item.
    */
   openItem(item: Item) {
-    console.log('open ', item);
     this.navCtrl.push('ItemDetailPage', {
       item: item
     });
@@ -87,10 +87,13 @@ export class ListMasterPage {
 
   }
   openFuelList(car) {
-    console.log(car);
     this.navCtrl.push(FuelListPage, {
       car: car
     });
-
+  }
+  openReport(car) {
+    this.navCtrl.push(ReportsPage, {
+      car: car
+    });
   }
 }
