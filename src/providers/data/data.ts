@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
+import * as moment from 'jalali-moment';
+
+
 /*
   Generated class for the DataProvider provider.
 
@@ -94,6 +97,25 @@ export class DataProvider {
     result[carNumber].Fuels = Fuels;
     console.log(Fuels, result)
     localStorage.setItem('datas', JSON.stringify(result));
+  }
+  carReport(carNumber) {
+    let result = JSON.parse(localStorage.getItem('datas'));
+    let list = result[carNumber].Fuels ? result[carNumber].Fuels : [];
+    let report = [];
+    report['result'] = [];
+    report = [];
+    report['data'] = [];
+    report['label'] = 'car';
+    // [{ data: list.map(item => parseInt(item.kilometre)), label: 'car' }]
+    list.forEach(element => {
+      report['data'].push([moment(element.date, 'jYYYY/jMM/jDD').diff(new Date(), "days"), parseInt(element.kilometre)])
+    });
+    // report['label'] = list.map(item => moment(item.date, 'jYYYY/jMM/jDD').diff(new Date(), "days"));
+    // console.log(MomentDate);
+    return report;
+  }
+  summary(carList, count: number = 20, month: number = null) {
+
   }
 
 }

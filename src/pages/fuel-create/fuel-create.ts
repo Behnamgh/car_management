@@ -23,14 +23,14 @@ export class FuelCreatePage {
   form: FormGroup;
   maxDate: string;
   yearVal = [moment().jYear(), moment().jYear() - 1];
-  carData:object;
+  carData: object;
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, formBuilder: FormBuilder, public dataProvider: DataProvider, params: NavParams) {
 
     this.carData = this.dataProvider.loadCar(params.get('carNumber'));
-    
+
     let MIN = dataProvider.getMaxKm(0) + 1;
     console.log(MIN);
-    
+
     this.form = formBuilder.group({
       name: [''],
       location: [''],
@@ -40,7 +40,6 @@ export class FuelCreatePage {
     });
 
     this.form.valueChanges.subscribe((v) => {
-      console.log(v, this.form);
       this.isReadyToSave = this.form.valid;
     });
 

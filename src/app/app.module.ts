@@ -21,6 +21,9 @@ import { FuelCreatePage } from '../pages/fuel-create/fuel-create';
 import { ReportsPage } from '../pages/reports/reports';
 
 import { ChartsModule } from 'ng2-charts';
+import { JalaliPipe } from '../pipes/jalali/jalali';
+import { MiladiPipe } from '../pipes/miladi/miladi';
+import { ReportFilterPage } from '../pages/report-filter/report-filter';
 
 
 
@@ -51,7 +54,8 @@ export function provideSettings(storage: Storage) {
     MyApp,
     FuelListPage,
     FuelCreatePage,
-    ReportsPage
+    ReportsPage,
+    ReportFilterPage
   ],
   imports: [
     BrowserModule,
@@ -72,7 +76,8 @@ export function provideSettings(storage: Storage) {
     MyApp,
     FuelListPage,
     FuelCreatePage,
-    ReportsPage
+    ReportsPage,
+    ReportFilterPage
   ],
   providers: [
     Api,
@@ -81,6 +86,8 @@ export function provideSettings(storage: Storage) {
     Camera,
     SplashScreen,
     StatusBar,
+    JalaliPipe,
+    MiladiPipe,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
