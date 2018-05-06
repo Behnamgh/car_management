@@ -24,12 +24,7 @@ export class ReportsPage {
   carNumber: number;
   lineChartOptions: any = {
     responsive: true,
-    scales: {
-      xAxes: [{
-        type: 'linear',
-        position: 'bottom'
-      }]
-    }
+    fill:true
   };
   lineChartColors: Array<any> = [
     { // grey
@@ -49,16 +44,16 @@ export class ReportsPage {
     settings.getValue('chart').then(res => {
       this.lineChartType = res ? res : 'line';
     });
-    // this.usageData = this.dataProvider.carReport(this.carNumber)['data'];
-    this.usageData = [{
-      label: 'Average User',
-      data: [
-        [{ x: 0, y: 10 }, { x: 10, y: 3 }],
-        [{ x: 0, y: 2 }, { x: 5, y: 7 }]
-      ]
-    }];
+    this.usageData = this.dataProvider.carReport(this.carNumber)['result'];
+    // this.usageData = [{
+    //   label: 'Average User',
+    //   data: [
+    //     [{ x: 0, y: 10 }, { x: 10, y: 3 }],
+    //     [{ x: 0, y: 2 }, { x: 5, y: 7 }]
+    //   ]
+    // }];
     // this.usageLabels = [-3,-2,-1];
-    // this.usageLabels = this.dataProvider.carReport(0)['label'];
+    this.usageLabels = this.dataProvider.carReport(0)['label'];
     console.log(this.usageData);
 
   }
