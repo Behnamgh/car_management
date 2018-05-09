@@ -25,6 +25,9 @@ import { JalaliPipe } from '../pipes/jalali/jalali';
 import { MiladiPipe } from '../pipes/miladi/miladi';
 import { ReportFilterPage } from '../pages/report-filter/report-filter';
 
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { Push } from '@ionic-native/push';
+import { NotificaionrunnersPage } from '../pages/notificaionrunners/notificaionrunners';
 
 
 
@@ -55,7 +58,8 @@ export function provideSettings(storage: Storage) {
     FuelListPage,
     FuelCreatePage,
     ReportsPage,
-    ReportFilterPage
+    ReportFilterPage,
+    NotificaionrunnersPage
   ],
   imports: [
     BrowserModule,
@@ -77,7 +81,8 @@ export function provideSettings(storage: Storage) {
     FuelListPage,
     FuelCreatePage,
     ReportsPage,
-    ReportFilterPage
+    ReportFilterPage,
+    NotificaionrunnersPage
   ],
   providers: [
     Api,
@@ -88,6 +93,8 @@ export function provideSettings(storage: Storage) {
     StatusBar,
     JalaliPipe,
     MiladiPipe,
+    LocalNotifications,
+    Push,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },

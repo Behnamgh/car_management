@@ -5,6 +5,7 @@ import { Item } from '../../models/item';
 import { Items, DataProvider } from '../../providers/providers';
 import { FuelListPage } from '../fuel-list/fuel-list';
 import { ReportsPage } from '../reports/reports';
+import { NotificaionrunnersPage } from '../notificaionrunners/notificaionrunners';
 
 @IonicPage()
 @Component({
@@ -89,6 +90,11 @@ export class ListMasterPage {
   openFuelList(car) {
     this.navCtrl.push(FuelListPage, {
       car: car
+    });
+  }
+  openNot() {
+    this.navCtrl.push(NotificaionrunnersPage, {
+      car: 1
     });
   }
   openReport(car) {

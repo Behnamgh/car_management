@@ -104,4 +104,7 @@ export class SettingsPage {
   ngOnChanges() {
     console.log('Ng All Changes');
   }
+  deleteLocal(){
+    localStorage.removeItem('skip');
+  }
 }

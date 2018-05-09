@@ -34,11 +34,18 @@
         </ion-select>
       </ion-item>
 
-      <button ion-item [navPush]="subSettings" [navParams]="profileSettings">
-        {{ 'SETTINGS_PROFILE_BUTTON' | translate }}
-      </button>
+      <ion-item>
+        <button ion-item [navPush]="subSettings" [navParams]="profileSettings">
+          {{ 'SETTINGS_PROFILE_BUTTON' | translate }}
+        </button>
+      </ion-item>
+      <ion-item>
+        <button ion-button (click)="deleteLocal()">
+          delete
+        </button>
+      </ion-item>
     </ion-list>
-
+   
     <ion-list *ngIf="page == 'profile'">
       <ion-item>
         <ion-label>{{ 'SETTINGS_OPTION4' | translate }}</ion-label>
