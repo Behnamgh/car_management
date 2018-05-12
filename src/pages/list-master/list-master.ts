@@ -6,6 +6,7 @@ import { Items, DataProvider } from '../../providers/providers';
 import { FuelListPage } from '../fuel-list/fuel-list';
 import { ReportsPage } from '../reports/reports';
 import { NotificaionrunnersPage } from '../notificaionrunners/notificaionrunners';
+import { PartListPage } from '../part-list/part-list';
 
 @IonicPage()
 @Component({
@@ -22,7 +23,7 @@ export class ListMasterPage {
   }
   loadData() {
     this.datas = this.dataProvider.loadDatas();
-    console.log(this.datas);
+    // console.log(this.datas);
 
   }
 
@@ -30,10 +31,10 @@ export class ListMasterPage {
    * The view loaded, let's query our items for the list
    */
   ionViewDidEnter() {
-    console.log('enter');
+    // console.log('enter');
   }
   ionViewDidLoad() {
-    console.log('check');
+    // console.log('check');
 
   }
 
@@ -48,7 +49,7 @@ export class ListMasterPage {
         this.dataProvider.addData('datas', item);
         this.loadData();
       }
-      console.log(item);
+      // console.log(item);
 
     })
     addModal.present();
@@ -60,7 +61,7 @@ export class ListMasterPage {
         this.dataProvider.addPart(index, item);
         this.loadData();
       }
-      console.log(item);
+      // console.log(item);
 
     })
     addModal.present();
@@ -81,10 +82,11 @@ export class ListMasterPage {
       item: item
     });
   }
-  openPart(part) {
-    // this.navCtrl.push('PartPage', {
-    //   part: part
-    // });
+  openPart(car, part) {
+    this.navCtrl.push(PartListPage, {
+      car: car,
+      part: part
+    });
 
   }
   openFuelList(car) {

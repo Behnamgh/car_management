@@ -62,8 +62,8 @@ export class SettingsPage {
     // Watch the form for changes, and
     this.form.valueChanges.subscribe((v) => {
       this.settings.getValue('lang').then(res => {
-        console.log(res);
-        console.log(this.form.value.lang);
+        // console.log(res);
+        // console.log(this.form.value.lang);
 
         if (res != this.form.value.lang) {
           this.translate.setDefaultLang(this.form.value.lang);
@@ -102,7 +102,7 @@ export class SettingsPage {
   }
 
   ngOnChanges() {
-    console.log('Ng All Changes');
+    // console.log('Ng All Changes');
   }
   deleteLocal(){
     localStorage.removeItem('skip');

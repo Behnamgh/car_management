@@ -55,7 +55,7 @@ export class MyApp {
     if (!lang) {
       lang = 'en';
     }
-    console.log(lang);
+    // console.log(lang);
 
 
     translate.setDefaultLang('de');

@@ -54,12 +54,12 @@ export class ReportsPage {
     // }];
     // this.usageLabels = [-3,-2,-1];
     this.usageLabels = this.dataProvider.carReport(0)['label'];
-    console.log(this.usageData);
+    // console.log(this.usageData);
 
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ReportsPage');
+    // console.log('ionViewDidLoad ReportsPage');
 
   }
 
@@ -70,11 +70,11 @@ export class ReportsPage {
 
   // events
   chartClicked(e: any) {
-    console.log(e);
+    // console.log(e);
   }
 
   chartHovered(e: any) {
-    console.log(e);
+    // console.log(e);
   }
   presentPopover(myEvent) {
     let popover = this.popoverCtrl.create(ReportFilterPage);

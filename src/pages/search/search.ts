@@ -15,7 +15,7 @@ export class SearchPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items, public dataProvider: DataProvider) { 
     let result = dataProvider.loadDatas();
-    console.log(result);
+    // console.log(result);
     
   }
 

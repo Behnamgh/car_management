@@ -28,6 +28,8 @@ import { ReportFilterPage } from '../pages/report-filter/report-filter';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Push } from '@ionic-native/push';
 import { NotificaionrunnersPage } from '../pages/notificaionrunners/notificaionrunners';
+import { PartListPage } from '../pages/part-list/part-list';
+import { PartRenewPage } from '../pages/part-renew/part-renew';
 
 
 
@@ -59,7 +61,9 @@ export function provideSettings(storage: Storage) {
     FuelCreatePage,
     ReportsPage,
     ReportFilterPage,
-    NotificaionrunnersPage
+    NotificaionrunnersPage,
+    PartListPage,
+    PartRenewPage
   ],
   imports: [
     BrowserModule,
@@ -82,7 +86,9 @@ export function provideSettings(storage: Storage) {
     FuelCreatePage,
     ReportsPage,
     ReportFilterPage,
-    NotificaionrunnersPage
+    NotificaionrunnersPage,
+    PartListPage,
+    PartRenewPage
   ],
   providers: [
     Api,
