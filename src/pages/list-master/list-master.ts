@@ -7,6 +7,7 @@ import { FuelListPage } from '../fuel-list/fuel-list';
 import { ReportsPage } from '../reports/reports';
 import { NotificaionrunnersPage } from '../notificaionrunners/notificaionrunners';
 import { PartListPage } from '../part-list/part-list';
+import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -17,9 +18,19 @@ export class ListMasterPage {
   currentItems: Item[];
   datas: any = [];
 
-  constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController, public dataProvider: DataProvider) {
+  constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController, public dataProvider: DataProvider, private translate: TranslateService) {
     this.currentItems = this.items.query();
     this.loadData();
+    {
+      let lang = localStorage.getItem('lang');
+      if (!lang) {
+        lang = 'en';
+        localStorage.setItem('lang', lang);
+      }
+      translate.setDefaultLang(lang);
+      translate.use(lang);
+    }
+
   }
   loadData() {
     this.datas = this.dataProvider.loadDatas();
@@ -31,6 +42,21 @@ export class ListMasterPage {
    * The view loaded, let's query our items for the list
    */
   ionViewDidEnter() {
+    {
+      let lang = localStorage.getItem('lang');
+      if (!lang) {
+        lang = 'en';
+        localStorage.setItem('lang', lang);
+      }
+      this.translate.setDefaultLang(lang);
+      this.translate.use(lang);
+    }
+    console.log(this.translate.getDefaultLang());
+    
+    this.translate.get('SEARCH_TITLE').subscribe((res: string) => {
+      console.log(res);
+      //=> 'hello world'
+    });
     // console.log('enter');
   }
   ionViewDidLoad() {

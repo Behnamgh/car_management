@@ -54,41 +54,39 @@ export class MyApp {
     let lang = localStorage.getItem('lang');
     if (!lang) {
       lang = 'en';
+      localStorage.setItem('lang', lang);
     }
-    // console.log(lang);
+    translate.setDefaultLang(lang);
 
-
-    translate.setDefaultLang('de');
-
-    this.initTranslate();
+    // this.initTranslate();
   }
 
-  initTranslate() {
-    // Set the default language for translation strings, and the current language.
+  // initTranslate() {
+  //   // Set the default language for translation strings, and the current language.
 
 
-    const browserLang = this.translate.getBrowserLang();
+  //   const browserLang = this.translate.getBrowserLang();
 
-    if (browserLang) {
-      if (browserLang === 'zh') {
-        const browserCultureLang = this.translate.getBrowserCultureLang();
+  //   if (browserLang) {
+  //     if (browserLang === 'zh') {
+  //       const browserCultureLang = this.translate.getBrowserCultureLang();
 
-        if (browserCultureLang.match(/-CN|CHS|Hans/i)) {
-          this.translate.use('zh-cmn-Hans');
-        } else if (browserCultureLang.match(/-TW|CHT|Hant/i)) {
-          this.translate.use('zh-cmn-Hant');
-        }
-      } else {
-        this.translate.use(this.translate.getBrowserLang());
-      }
-    } else {
-      this.translate.use(localStorage.getItem('lang')); // Set your language here
-    }
+  //       if (browserCultureLang.match(/-CN|CHS|Hans/i)) {
+  //         this.translate.use('zh-cmn-Hans');
+  //       } else if (browserCultureLang.match(/-TW|CHT|Hant/i)) {
+  //         this.translate.use('zh-cmn-Hant');
+  //       }
+  //     } else {
+  //       this.translate.use(this.translate.getBrowserLang());
+  //     }
+  //   } else {
+  //     this.translate.use(localStorage.getItem('lang')); // Set your language here
+  //   }
 
-    this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
-      this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
-    });
-  }
+  //   this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
+  //     this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
+  //   });
+  // }
 
   openPage(page) {
     // Reset the content nav to have just this page
