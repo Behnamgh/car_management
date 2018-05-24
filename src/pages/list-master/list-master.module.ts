@@ -9,11 +9,7 @@ import { ListMasterPage } from './list-master';
     ListMasterPage,
   ],
   imports: [
-    IonicPageModule.forChild(ListMasterPage),
-    TranslateModule.forChild()
-  ],
-  exports: [
-    ListMasterPage
+    IonicPageModule.forChild(ListMasterPage)
   ]
 })
 export class ListMasterPageModule { }

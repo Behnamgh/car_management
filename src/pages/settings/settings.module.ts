@@ -9,11 +9,7 @@ import { SettingsPage } from './settings';
     SettingsPage,
   ],
   imports: [
-    IonicPageModule.forChild(SettingsPage),
-    TranslateModule.forChild()
-  ],
-  exports: [
-    SettingsPage
+    IonicPageModule.forChild(SettingsPage)
   ]
 })
 export class SettingsPageModule { }

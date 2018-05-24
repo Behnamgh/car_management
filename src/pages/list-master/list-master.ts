@@ -5,7 +5,6 @@ import { Item } from '../../models/item';
 import { Items, DataProvider } from '../../providers/providers';
 import { FuelListPage } from '../fuel-list/fuel-list';
 import { ReportsPage } from '../reports/reports';
-import { NotificaionrunnersPage } from '../notificaionrunners/notificaionrunners';
 import { PartListPage } from '../part-list/part-list';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -103,11 +102,11 @@ export class ListMasterPage {
   /**
    * Navigate to the detail page for this item.
    */
-  openItem(item: Item) {
-    this.navCtrl.push('ItemDetailPage', {
-      item: item
-    });
-  }
+  // openItem(item: Item) {
+  //   this.navCtrl.push('ItemDetailPage', {
+  //     item: item
+  //   });
+  // }
   openPart(car, part) {
     this.navCtrl.push(PartListPage, {
       car: car,
@@ -120,11 +119,7 @@ export class ListMasterPage {
       car: car
     });
   }
-  openNot() {
-    this.navCtrl.push(NotificaionrunnersPage, {
-      car: 1
-    });
-  }
+
   openReport(car) {
     this.navCtrl.push(ReportsPage, {
       car: car

@@ -8,11 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
     TutorialPage,
   ],
   imports: [
-    IonicPageModule.forChild(TutorialPage),
-    TranslateModule.forChild()
-  ],
-  exports: [
-    TutorialPage
+    IonicPageModule.forChild(TutorialPage)
   ]
 })
 export class TutorialPageModule { }

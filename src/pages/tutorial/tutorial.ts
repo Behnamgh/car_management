@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, MenuController, NavController, Platform } from 'ionic-angular';
 
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService } from "@ngx-translate/core";
 import { MainPage } from '../pages';
 import { DataProvider } from '../../providers/providers';
 
@@ -21,7 +21,7 @@ export class TutorialPage {
   showSkip = true;
   dir: string = 'ltr';
 
-  constructor(public navCtrl: NavController, public menu: MenuController, translate: TranslateService, public platform: Platform, public dataProvider: DataProvider) {
+  constructor(private translate: TranslateService,public navCtrl: NavController, public menu: MenuController, public platform: Platform, public dataProvider: DataProvider) {
     this.dir = platform.dir();
     translate.get(["TUTORIAL_SLIDE1_TITLE",
       "TUTORIAL_SLIDE1_DESCRIPTION",
@@ -73,6 +73,15 @@ export class TutorialPage {
   ionViewWillLeave() {
     // enable the root left menu when leaving the tutorial page
     this.menu.enable(true);
+  }
+  public changeLanguage() {
+    let language = this.translate.currentLang == 'en'?'de':'en';
+    console.log(language);
+    
+    this.translate.use(language);
+    this.translate.setDefaultLang(language);
+    console.log('current', this.translate.getDefaultLang(),this.translate.currentLang);
+    
   }
 
 }

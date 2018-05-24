@@ -12,6 +12,8 @@
       <img [src]="slide.image" class="slide-image" />
       <h2 class="slide-title" [innerHTML]="slide.title"></h2>
       <p [innerHTML]="slide.description"></p>
+        <button ion-button (click)="changeLanguage()">{{ 'SEARCH_TITLE' | translate }}</button>
+
     </ion-slide>
     <ion-slide>
       <img src="assets/img/ica-slidebox-img-4.png" class="slide-image" />

@@ -36,10 +36,10 @@ export class SearchPage {
   /**
    * Navigate to the detail page for this item.
    */
-  openItem(item: Item) {
-    this.navCtrl.push('ItemDetailPage', {
-      item: item
-    });
-  }
+  // openItem(item: Item) {
+  //   this.navCtrl.push('ItemDetailPage', {
+  //     item: item
+  //   });
+  // }
 
 }

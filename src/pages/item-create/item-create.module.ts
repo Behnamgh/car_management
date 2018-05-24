@@ -9,11 +9,7 @@ import { ItemCreatePage } from './item-create';
     ItemCreatePage,
   ],
   imports: [
-    IonicPageModule.forChild(ItemCreatePage),
-    TranslateModule.forChild()
-  ],
-  exports: [
-    ItemCreatePage
+    IonicPageModule.forChild(ItemCreatePage)
   ]
 })
 export class ItemCreatePageModule { }

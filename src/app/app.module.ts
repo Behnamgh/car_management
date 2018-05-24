@@ -11,7 +11,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { Items } from '../mocks/providers/items';
 import { Settings } from '../providers/providers';
-import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 import { DataProvider } from '../providers/data/data';
@@ -27,9 +26,14 @@ import { ReportFilterPage } from '../pages/report-filter/report-filter';
 
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Push } from '@ionic-native/push';
-import { NotificaionrunnersPage } from '../pages/notificaionrunners/notificaionrunners';
 import { PartListPage } from '../pages/part-list/part-list';
 import { PartRenewPage } from '../pages/part-renew/part-renew';
+import { ItemCreatePage } from '../pages/item-create/item-create';
+import { SearchPage } from '../pages/search/search';
+import { SettingsPage } from '../pages/settings/settings';
+import { TabsPage } from '../pages/tabs/tabs';
+import { TutorialPage } from '../pages/tutorial/tutorial';
+import { ListMasterPage } from '../pages/list-master/list-master';
 
 
 
@@ -62,9 +66,14 @@ export function provideSettings(storage: Storage) {
     FuelCreatePage,
     ReportsPage,
     ReportFilterPage,
-    NotificaionrunnersPage,
     PartListPage,
-    PartRenewPage
+    PartRenewPage,
+    ItemCreatePage,
+    ListMasterPage,
+    SearchPage,
+    SettingsPage,
+    // TabsPage,
+    TutorialPage
   ],
   imports: [
     BrowserModule,
@@ -87,14 +96,18 @@ export function provideSettings(storage: Storage) {
     FuelCreatePage,
     ReportsPage,
     ReportFilterPage,
-    NotificaionrunnersPage,
     PartListPage,
-    PartRenewPage
+    PartRenewPage, 
+    ItemCreatePage,
+    ListMasterPage,
+    SearchPage,
+    SettingsPage,
+    // TabsPage,
+    TutorialPage
   ],
   providers: [
     Api,
     Items,
-    User,
     Camera,
     SplashScreen,
     StatusBar,

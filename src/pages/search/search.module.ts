@@ -9,11 +9,7 @@ import { SearchPage } from './search';
     SearchPage,
   ],
   imports: [
-    IonicPageModule.forChild(SearchPage),
-    TranslateModule.forChild()
-  ],
-  exports: [
-    SearchPage
+    IonicPageModule.forChild(SearchPage)
   ]
 })
 export class SearchPageModule { }
